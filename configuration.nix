@@ -9,6 +9,8 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./network.nix
+      ./display.nix
+      ./users.nix
     ];
 
   # Bootloader.
@@ -19,7 +21,6 @@
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -39,18 +40,6 @@
       LC_TIME = "en_US.UTF-8";
     };
   };
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -69,19 +58,6 @@
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
-  };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.dezash = {
-    isNormalUser = true;
-    description = "Desmond Mehta";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
   };
 
   # Allow unfree packages
