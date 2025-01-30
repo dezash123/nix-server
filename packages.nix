@@ -14,7 +14,7 @@
     wget
     git
     neovim
-    neofetch
+    fastfetch
     btop
     tmux
     lsd
