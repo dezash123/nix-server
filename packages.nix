@@ -4,10 +4,12 @@
 
   programs.direnv.enable = true;
 
-  services.ollama = {
-    enable = true;
-    acceleration = "cuda";
-    services.open-webui.enable = true;
+  services = {
+    ollama = {
+      enable = true;
+      acceleration = "cuda";
+    };
+    open-webui.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
